@@ -372,3 +372,46 @@ function loop() {
     desenhar();
     requestAnimationFrame(loop);
 }
+// EVENTO DE TECLADO
+document.addEventListener("keydown", function(e) {
+    teclas[e.key] = true;
+
+    if (["ArrowLeft", "ArrowRight", "ArrowUp", " "].includes(e.key)) {
+        e.preventDefault();
+    }
+
+    if (
+        (e.code === "Space" || e.key === "ArrowUp" ||
+        e.key === "w" || e.key === "W") &&
+        estado === "jogando" &&
+        !jogador.pulando
+    ) {
+        jogador.vy = -12;
+        jogador.pulando = true;
+    }
+});
+
+// EVENTO QUANDO SOLTA A TECLA
+document.addEventListener("keyup", function(e) {
+    teclas[e.key] = false;
+});
+
+// EVENTO DE CLIQUE NO CANVAS
+canvas.addEventListener("click", function(e) {
+    const rect = canvas.getBoundingClientRect();
+
+    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+
+    if (
+        (estado === "menu" && x >= 300 && x <= 500 &&
+        y >= 320 && y <= 375) ||
+        ((estado === "gameover" || estado === "vitoria") &&
+        x >= 260 && x <= 540 && y >= 330 && y <= 385)
+    ) {
+        iniciarJogo();
+    }
+});
+
+// INICIAR LOOP
+loop();
