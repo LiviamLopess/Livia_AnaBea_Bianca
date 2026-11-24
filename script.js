@@ -276,3 +276,58 @@ function atualizar() {
     if (jogador.y > 530) {
         estado = "gameover";
     }
+      // COLISÃO COM PLATAFORMAS
+    plataformas.forEach(p => {
+        if (
+            jogador.vy > 0 &&
+            jogador.x + jogador.r > p.x &&
+            jogador.x - jogador.r < p.x + p.w &&
+            jogador.y + jogador.r >= p.y &&
+            jogador.y + jogador.r - jogador.vy <= p.y
+        ) {
+            jogador.y = p.y - jogador.r;
+            jogador.vy = 0;
+            jogador.pulando = false;
+        }
+    });
+
+    // MOVIMENTAÇÃO DOS INIMIGOS
+    inimigos.forEach(e => {
+        e.x += e.vx;
+
+        if (e.x < e.min || e.x > e.max) {
+            e.vx *= -1;
+        }
+
+        let dx = jogador.x - e.x;
+        let dy = jogador.y - e.y;
+        let distancia = Math.sqrt(dx * dx + dy * dy);
+
+        if (distancia < jogador.r + 17) {
+            estado = "gameover";
+        }
+    });
+
+    // COLETAR ESTRELAS
+    estrelas.forEach(s => {
+        if (!s.pega) {
+            let dx = jogador.x - s.x;
+            let dy = jogador.y - s.y;
+
+            if (Math.sqrt(dx * dx + dy * dy) < 35) {
+                s.pega = true;
+                pontos++;
+            }
+        }
+    });
+
+    // VITÓRIA
+    if (pontos >= 5) {
+        estado = "vitoria";
+    }
+
+    // GAME OVER
+    if (jogador.y > 530) {
+        estado = "gameover";
+    }
+
