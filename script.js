@@ -221,7 +221,7 @@ function atualizar() {
     jogador.y += jogador.vy;
 
     jogador.pulando = true;
-}
+
   // COLISÃO COM PLATAFORMAS
     plataformas.forEach(p => {
         if (
@@ -276,6 +276,7 @@ function atualizar() {
     if (jogador.y > 530) {
         estado = "gameover";
     }
+}
 // DESENHAR JOGO
 function desenharJogo() {
     desenharFundo();
@@ -314,7 +315,7 @@ function desenharMenu() {
     ctx.fillStyle = "#247b60";
     ctx.textAlign = "center";
     ctx.font = "bold 55px Arial";
-    ctx.fillText("HATER HOP", 400, 150);
+    ctx.fillText("PULA PEGA", 400, 150);
 
     ctx.font = "25px Arial";
     ctx.fillText("O sapinho está pronto para pular!", 400, 210);
