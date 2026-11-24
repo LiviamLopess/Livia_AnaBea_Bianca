@@ -34,4 +34,16 @@ canvas {
     font-weight: bold;
     text-align: center;
 }
+.botao {
+    display: inline-block;
+    background: #238b65;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+.botao:hover {
+    background: #145c45;
+}
 
