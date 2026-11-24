@@ -293,3 +293,56 @@ function desenharJogo() {
     ctx.font = "bold 23px Arial";
     ctx.fillText("PONTOS:  " + pontos + " / 5", 20, 35);
 }
+// DESENHAR BOTÕES
+function desenharBotao(texto, x, y, w, h) {
+    ctx.fillStyle = "#238b65";
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 15);
+    ctx.fill();
+
+    ctx.fillStyle = "white";
+    ctx.font = "bold 23px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(texto, x + w / 2, y + 35);
+    ctx.textAlign = "left";
+}
+
+// MENU INICIAL
+function desenharMenu() {
+    desenharFundo();
+
+    ctx.fillStyle = "#247b60";
+    ctx.textAlign = "center";
+    ctx.font = "bold 55px Arial";
+    ctx.fillText("HATER HOP", 400, 150);
+
+    ctx.font = "25px Arial";
+    ctx.fillText("🐸 O sapinho está pronto para pular!", 400, 210);
+
+    ctx.font = "19px Arial";
+    ctx.fillText("Colete as 5 estrelas e fuja dos haters!", 400, 255);
+
+    desenharBotao("JOGAR", 300, 320, 200, 55);
+
+    ctx.textAlign = "left";
+}
+
+// TELA DE FIM
+function desenharFim(titulo, mensagem) {
+    desenharFundo();
+
+    ctx.fillStyle = "#247b60";
+    ctx.textAlign = "center";
+    ctx.font = "bold 48px Arial";
+    ctx.fillText(titulo, 400, 170);
+
+    ctx.font = "23px Arial";
+    ctx.fillText(mensagem, 400, 235);
+
+    ctx.font = "21px Arial";
+    ctx.fillText("Estrelas: " + pontos + " / 5", 400, 275);
+
+    desenharBotao("JOGAR NOVAMENTE", 260, 330, 280, 55);
+
+    ctx.textAlign = "left";
+}
