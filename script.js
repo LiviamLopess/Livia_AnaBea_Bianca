@@ -198,3 +198,27 @@ function desenharInimigo(e) {
     ctx.stroke();
 }
 
+// ATUALIZAR JOGO
+function atualizar() {
+    if (estado !== "jogando") return;
+
+    jogador.vx = 0;
+
+    if (teclas["ArrowLeft"] || teclas["a"] || teclas["A"]) {
+        jogador.vx = -jogador.velocidade;
+    }
+
+    if (teclas["ArrowRight"] || teclas["d"] || teclas["D"]) {
+        jogador.vx = jogador.velocidade;
+    }
+
+    jogador.x += jogador.vx;
+
+    if (jogador.x < jogador.r) jogador.x = jogador.r;
+    if (jogador.x > 800 - jogador.r) jogador.x = 800 - jogador.r;
+
+    jogador.vy += 0.5;
+    jogador.y += jogador.vy;
+
+    jogador.pulando = true;
+}
