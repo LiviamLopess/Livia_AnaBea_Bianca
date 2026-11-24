@@ -346,3 +346,29 @@ function desenharFim(titulo, mensagem) {
 
     ctx.textAlign = "left";
 }
+
+// CONTROLAR TELAS
+function desenhar() {
+    if (estado === "menu") {
+        desenharMenu();
+    }
+
+    if (estado === "jogando") {
+        desenharJogo();
+    }
+
+    if (estado === "gameover") {
+        desenharFim("GAME OVER!", "Os haters pegaram o sapinho!");
+    }
+
+    if (estado === "vitoria") {
+        desenharFim("VOCÊ VENCEU!", "Parabéns! Você salvou o sapinho!");
+    }
+}
+
+// LOOP PRINCIPAL
+function loop() {
+    atualizar();
+    desenhar();
+    requestAnimationFrame(loop);
+}
