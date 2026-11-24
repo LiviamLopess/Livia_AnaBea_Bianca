@@ -317,7 +317,7 @@ function desenharMenu() {
     ctx.fillText("HATER HOP", 400, 150);
 
     ctx.font = "25px Arial";
-    ctx.fillText("🐸 O sapinho está pronto para pular!", 400, 210);
+    ctx.fillText("O sapinho está pronto para pular!", 400, 210);
 
     ctx.font = "19px Arial";
     ctx.fillText("Colete as 5 estrelas e fuja dos haters!", 400, 255);
