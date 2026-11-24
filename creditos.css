@@ -1,0 +1,56 @@
+
+.creditos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #e8fff5;
+    border: 3px solid #42bd79;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.integrante {
+    background: #c8f5df;
+    border-radius: 12px;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.integrante:hover {
+    transform: scale(1.03);
+    background: #b3edcf;
+}
+
+.integrante h3 {
+    color: #247b60;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.integrante p {
+    color: #185b48;
+    font-size: 16px;
+    margin: 0;
+}
+
+.final {
+    color: #185b48;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 20px 0;
+}
+.botao {
+    display: inline-block;
+    background: #238b65;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.botao:hover {
+    background: #145c45;
+    transform: scale(1.05);
+}
